@@ -8,9 +8,6 @@ class Solution {
     while (c % 2 == 0) {
       c ~/= 2;
     }
-    if (c == 1) {
-      return true;
-    }
     var i = 3;
     while (i * i <= c) {
       var count = 0;
