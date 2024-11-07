@@ -1,12 +1,12 @@
 class Solution:
     def largestCombination(self, candidates: list[int]) -> int:
         mask = 2 ** 25
-        set_list = []
+        max_num = 0
         while mask > 0:
-            set_list.append(set())
-            for i, candidate in enumerate(candidates):
+            current = 0
+            for candidate in candidates:
                 if candidate & mask != 0:
-                    set_list[-1].add(i)
+                    current += 1
+            max_num = max(max_num, current)
             mask >>= 1
-        largest_set = max(*set_list, key=len)
-        return len(largest_set)
+        return max_num
